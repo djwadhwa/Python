@@ -1,4 +1,4 @@
-#function "fac" represents "factorial"
+# function "fac" represents "factorial"
 
 def fac(num):
     if (num>0):
@@ -7,5 +7,5 @@ def fac(num):
     else:
         return 1;
 
-#using 3 as an example
+# using 3 as an example
 print(fac(3))
