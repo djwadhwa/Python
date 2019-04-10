@@ -25,8 +25,6 @@
 #=======================================================================
 
 
-
-
 #---------------- Module General Import and Declarations ---------------
 
 #- Set module version number etc. to package version number etc.:
@@ -83,15 +81,15 @@ print("Mean temperature:", ma.mean(temps))
 print("Median temperature:", ma.median(temps))
 print("Temperature standard deviation:", ma.std(temps))
 
-#make a plot with temps as x axis and days as y axis
-plt.plot (temps, days)
+#make a plot with days as x axis and temp as y axis
+plt.plot (days, temps)
 
 #set title for plot
 plt.title("Surface Temperature vs. Julian Days")
 
 #set x y labels for plot
-plt.ylabel("Julian Days from 01/01/1997")
-plt.xlabel("Surface Temparture (deg C)")
+plt.xlabel("Julian Days from 01/01/1997")
+plt.ylabel("Surface Temparture (deg C)")
 
 #display the plot
 plt.show()
