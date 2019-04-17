@@ -35,7 +35,7 @@ import matplotlib.pyplot as plt #used for plotting
 #set variables 
 growth_rate = 0.093 
 principal = 500.
-time_frames = (10, 20, 30,40) # create an array of years to calculate
+time_frames = (10, 20, 30, 40) # create an array of years to calculate
 
 #set arrays to fill in data
 calculated_array = np.zeros (np.size(time_frames))
@@ -58,13 +58,15 @@ for i in range(np.size(time_frames)):
 for i in range (np.size(time_frames)):
     
     #relative error = ((correct - result)/correct)*100
-    relative_error[i] = ((calculated_array[i]-analytic_array[i])*100)/calculated_array[i]
+    relative_error[i] = (((calculated_array[i]-analytic_array[i])*100)
+    /calculated_array[i])
     
     #abosulte error = |correct - result|
     absolute_error[i] = np.absolute(calculated_array[i]-analytic_array[i])
     
     #orint result to console
-    print ("years", time_frames[i], "relative error:", str(relative_error[i])+"%","absolute error:", absolute_error[i])
+    print ("year:", time_frames[i], "relative error:", str(relative_error[i])
+    +"%","absolute error:", absolute_error[i])
 
 #plot both lines to the same axes in the same figure
 plt.plot(time_frames, calculated_array)
