@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
+import matplotlib.pyplot as plt
 
 #ordinary variables
 halfLife = 3.2 #units: hours
@@ -28,3 +29,10 @@ def itox(i):
 
 for i in range(1, np.size(x)):
     elimination = (eliminationConstant * aspirinInPlasma[i-1]) * deltaX
+    aspirinInPlasma[i] = aspirinInPlasma[i-1] - elimination
+
+plasmaConcentration = aspirinInPlasma / plasmaVolume 
+
+plt.plot(x, plasmaConcentration)
+plt.show()
+
