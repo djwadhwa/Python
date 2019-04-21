@@ -13,9 +13,6 @@ eliminationConstant = -np.log(.5)/halfLife #units: 1/hours
 aspirinInPlasma= np.zeros(96)
 aspirinInPlasma[0] = 2*365*1000 #units: µg
 
-#flow variables
-elimation = 0
-
 simulationHours = 8
 deltaX = 5/60
 
@@ -34,5 +31,7 @@ for i in range(1, np.size(x)):
 plasmaConcentration = aspirinInPlasma / plasmaVolume 
 
 plt.plot(x, plasmaConcentration)
+plt.xlabel("hours")
+plt.ylabel("plasma concentration (µg/ml)")
 plt.show()
 
