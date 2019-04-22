@@ -4,11 +4,8 @@
 #                        General Documentation
 
 """
-    Find area under f(x) = sqrt(cos^2(x)+1) using probabily by "throwing" darts
-    uniformly on the graph containing f(x), where x ranges from 0 to 2 and y 
-    ranges from 0 to 1.5, and caluclating number of darts under the cover
-    compared to total darts, then multiplying this ratio with the area of the
-    graph.
+    Use rejection method to generate random number from the probabilty density 
+    function of f(x) = 2π*sin(4π*x)
 """
 #-----------------------------------------------------------------------
 #                       Additional Documentation
@@ -46,16 +43,28 @@ func_array = np.zeros(np.size(x_axis))
 #calucalate f(x) from 0 to 0.25
 for i in range (np.size(func_array)):
     func_array[i] = func(x_axis[i])
-    
+
+#use a rejection method to generate a random number
 def rej():
+    
+    #rand is a uniform random number from 0 to 0.25
     rand = r.uniform(0, 0.25)
+    
+    #rand2 is a uniform random number from 0 to 2π
     rand2 = r.uniform(0, 2*np.pi)
+    
+    #if f(rand) > rand then return rand
     if (func(rand) > rand2):
         return rand
+    
+    #else make a recursive call to rej()
     else:
         return rej()
-        
+    
+#create list of 1000 randomly generated values
 rand_list = np.zeros(1000)
+
+#generate values for rand_list
 for i in range (1000):
     rand_list[i] = rej()
     
@@ -64,11 +73,21 @@ fig1 = plt.figure()
 
 #generate axes for plot
 ax1 = fig1.add_axes((0.04, 0.05, 0.45, 0.45))
-ax1.plot(x_axis, func_array)
-ax1.set_title("Plotting f(x)")
 
-#create
+#plot f(x)
+ax1.plot(x_axis, func_array)
+
+#set title for plot
+ax1.set_title("Plotting f(x) from 0 to 2π")
+
+#create axes for histogram
 ax2 = fig1.add_axes((0.525, 0.5, 0.45, 0.45))
+
+#hist for rand_list
 ax2.hist (rand_list)
-ax2.set_title("probabilty desity function histogram")
+
+#set title for histogram
+ax2.set_title("Probabilty Density Function Histogram")
+
+#show figure
 fig1.show()
