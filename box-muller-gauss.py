@@ -31,8 +31,8 @@ import matplotlib.pyplot as plt
 import random as r
 
 #set constantds
-mean = 9
-stdDev = 2
+mean = 10
+stdDev = 2.3
 size = 500
 a = 0
 b = 0
@@ -46,8 +46,8 @@ tblGauss = np.zeros(2*size)
 for i in range (size):
     
     #generate a & b
-    a = r.uniform (0, 2*np.pi)
-    b = stdDev*np.sqrt(-1*np.log(r.random()))
+    a = np.random.uniform (0, 2*np.pi)
+    b = stdDev*np.sqrt(-1*np.log(np.random.random()))
     
     #calculate the value of both coordinates
     first_cord[i] = (b*np.sin(a)+mean)
@@ -80,3 +80,5 @@ ax2.set_title("numpy function to concatenate ")
 
 #show figure
 fig1.show()
+
+print (first_cord[0])
